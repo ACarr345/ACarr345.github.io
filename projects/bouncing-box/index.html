@@ -76,8 +76,12 @@
 			turn it around! 
 			*/
 			function update() { 
+				positionX=positionX +speed;
 				moveBoxTo(positionX)
-                positionX=positionX + 10;
+				if (positionX > boardWidth) {
+					speed *= -1;
+				}
+                
 			};
 
 			/* 
@@ -86,8 +90,9 @@
 			the left side of the screen.
 			*/
 			function handleBoxClick() {
-					positionX=0
+					positionX=0;
 					points=points+1
+					speed = speed + 3;
 					changeBoxText(points);
 			};
 		})();
